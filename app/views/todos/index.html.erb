@@ -5,9 +5,7 @@
 <%= form_with(url: todos_path, method: "get", local: true) do |f| %>
   <%= f.text_field :keyword, value: params[:keyword] %>
   <%= f.submit "filter" %>
-
 <% end %>
-
 
 <table>
   <thead>
