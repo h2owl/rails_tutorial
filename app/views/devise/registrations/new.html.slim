@@ -2,11 +2,11 @@ h2
   | Sign up
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
-  .field
+  .form-group
     = f.label :email
     br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
+    = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control col-md-5 col-sm', placeholder: 'Enter Email'
+  .form-group
     = f.label :password
     - if @minimum_password_length
       em
@@ -14,11 +14,11 @@ h2
         = @minimum_password_length
         |  characters minimum)
     br
-    = f.password_field :password, autocomplete: "new-password"
-  .field
+    = f.password_field :password, autocomplete: "new-password", class: 'form-control col-md-5 col-sm', placeholder: 'Enter Password'
+  .form-group
     = f.label :password_confirmation
     br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
+    = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control col-md-5 col-sm', placeholder: 'Enter Password Confirmation'
+  .actions.pb-5
+    = f.submit "Sign up", class: 'btn btn-primary'
 = render "devise/shared/links"

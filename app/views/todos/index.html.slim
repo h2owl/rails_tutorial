@@ -1,0 +1,30 @@
+h1 todos
+
+table.w-100.main-table
+  thead
+    tr.row
+      / th User
+      th.col-md-1 Done
+      th.col-md-2 Title
+      th.col-md-7 Content
+      th.col-md-2
+
+  tbody
+    - @todos.each do |todo|
+      tr.row
+        td.col-md-1 = todo.done
+        - if todo.done == true
+          td.col-md-2.strike = todo.title
+          td.col-md-7.strike = todo.content
+        - else
+          td.col-md-2 = todo.title
+          td.col-md-7 = todo.content
+        td.col-md-2
+          = link_to 'Detail', todo
+          |  / 
+          = link_to 'Edit', edit_todo_path(todo)
+          |  / 
+          = link_to 'Delete', todo, data: { confirm: 'Are you sure?' }, method: :delete
+br
+
+= link_to 'New Todo', new_todo_path

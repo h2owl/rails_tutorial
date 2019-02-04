@@ -1,0 +1,18 @@
+p#notice = notice
+
+/ p
+/   strong User:
+/   = @todo.user
+p
+  strong Title:
+  = @todo.title
+p
+  strong Content:
+  = @todo.content
+p
+  strong Done:
+  = @todo.done
+
+=> link_to 'Edit', edit_todo_path(@todo)
+'|
+=< link_to 'Back', todos_path

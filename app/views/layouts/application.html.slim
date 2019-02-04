@@ -7,6 +7,19 @@ html
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+    sass:
+      .strike
+        text-decoration: line-through
+      table
+        td
+          text-overflow: ellipsis
+          overflow: hidden
+      thead
+        tr
+          background: #eee
+      tr:nth-child(even)
+        background: #eee
   body
     = render 'layouts/header'
     .container.py-4.px-0

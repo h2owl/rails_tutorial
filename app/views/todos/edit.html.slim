@@ -1,0 +1,24 @@
+= form_for @todo do |f|
+  - if @todo.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@todo.errors.count, "error")} prohibited this todo from being saved:"
+      ul
+        - @todo.errors.full_messages.each do |message|
+          li = message
+  h1 = "Edit: #{@todo.title}"
+  .field
+    = f.label :done
+    = f.check_box :done
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control col-md-5 col-sm', placeholder: 'Enter Title'
+  .field
+    = f.label :content
+    = f.text_field :content, class: 'form-control col-md-5 col-sm', placeholder: 'Enter Content'
+  
+  .actions = f.submit
+
+=> link_to 'Show', @todo
+'|
+=< link_to 'Back', todos_path
+

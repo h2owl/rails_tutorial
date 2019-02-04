@@ -3,36 +3,36 @@ h2
   = resource_name.to_s.humanize
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = devise_error_messages!
-  .field
+  .form-group
     = f.label :email
     br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
+    = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control col-md-5 col-sm', placeholder: 'Enter Email'
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     div
       | Currently waiting confirmation for: 
       = resource.unconfirmed_email
-  .field
+  .form-group
     = f.label :password
     i
       | (leave blank if you don't want to change it)
     br
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      br
-      em
-        = @minimum_password_length
-        |  characters minimum
-  .field
+    = f.password_field :password, autocomplete: "new-password", class: 'form-control col-md-5 col-sm', placeholder: 'Enter NEW Password'
+    / - if @minimum_password_length
+    /   br
+    /   em
+    /     = @minimum_password_length
+    /     |  characters minimum
+  .form-group
     = f.label :password_confirmation
     br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
+    = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control col-md-5 col-sm', placeholder: 'Enter NEW Email Confirmation'
+  .form-group
     = f.label :current_password
     i
       | (we need your current password to confirm your changes)
     br
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
+    = f.password_field :current_password, autocomplete: "current-password", class: 'form-control col-md-5 col-sm', placeholder: 'Enter CURRENT Password'
+  .actions.pb-5
     = f.submit "Update"
 h3
   | Cancel my account
