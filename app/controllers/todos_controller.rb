@@ -4,9 +4,7 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
-    #    binding.pry
     @todos = User.find_by(id: current_user.id).todos
-#    @todos = Todo.all
   end
 
   # GET /todos/1
@@ -31,7 +29,6 @@ class TodosController < ApplicationController
     @todo[:created_at] = Time.zone.now
     @todo[:updated_at] = Time.zone.now
 
-#    binding.pry
     respond_to do |format|
       if @todo.save
         format.html { redirect_to @todo, notice: 'Todo was successfully created.' }
